@@ -1,0 +1,10 @@
+bibentry("Article",
+         title = "{RNASeqGUI: A GUI for analysing RNA-Seq data}",
+         author = c(person("Francesco", "Russo"),
+	 person("Claudia", "Angelini")),
+	 journal = "Bioinformatics",
+         year = "2014",
+         note = "R package version 0.99.4",
+         textVersion = paste("F. Russo, C. Angelini","2014",
+               "RNASeqGUI: A GUI for analysing RNA-Seq data.")
+         )
