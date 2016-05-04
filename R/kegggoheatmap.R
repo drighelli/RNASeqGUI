@@ -156,7 +156,7 @@ kegggoheatmap_function <- function(re,geneSet1,geneSet2,Project,hsa,mmu,dme,dre,
        length(go.gs[[gs]])
        rownames(go.gs[[gs]])
        print("Producing the heatmap. If it returns an error please close the R console and restart RNASeqGUI.")
-       gage::geneData(genes = rownames(go.gs[[gs]]), exprs = log(counts + 1), ref = control, samp = treated, outname = outname, txt = TRUE, heatmap = TRUE, limit = 3, scatterplot = TRUE)
+       gage::geneData(genes = rownames(go.gs[[gs]]), exprs = log(counts + 1), ref = control, samp = treated, outname = outname, txt = TRUE, heatmap = TRUE, limit = 3, scatterplot = TRUE, dendrogram="none")
 
     }
     setwd(prevwd)
@@ -400,7 +400,9 @@ id=NULL
        print(length(id))
        print(id)
        print("Producing the heatmap. If it returns an error please close the R console and restart RNASeqGUI.")
-       gage::geneData(genes = id, exprs = log(counts + 1), ref = control, samp = treated, outname = outname, txt = TRUE, heatmap = TRUE,dendrogram="col",cexRow=0.8, cexCol=1,srtCol=40, margins = c(6, 6), limit = 3, scatterplot = TRUE)
+       gage::geneData(genes = id, exprs = log(counts + 1), ref = control, samp = treated, outname = outname, txt = TRUE, heatmap = TRUE, 
+                      cexRow=1.5, margins = c(10, 10), limit = 3, scatterplot = TRUE, dendrogram="none", 
+                      pdf.size = c(21,30), key=FALSE)
 
        write.table(id, file = "genes_in_the_path.txt" , quote=FALSE, sep="\t", row.names=TRUE)
 

@@ -319,6 +319,7 @@ PrintDavidReport <- function(cache.db.obj, db.cache.name) {
                     "`, analysis.type: `",analysis.type,
                     "`, specie: `",specie,
                     "`, Project: `",Project,"`",sep="\n")
+  ##aggiungere flag di filtering
   write(message2, file = report,ncolumns = if(is.character(message2)) 1 else 5,append = TRUE, sep = "\n")
   
   message5 <- paste("  ",sep="\n")
