@@ -245,6 +245,7 @@ DavidAnalysis <- function(main.window=NULL, file.name, gene.list.position, gene.
         # results.final <- FilterDavidResults(results.final, filter.list)
         results.final <- results.final[results.final[ , filter.list$col.name]< filter.list$thr, ]
       }
+      SaveInCache(db, filter.list, "filterlist_key")
       #print("diverso da zero")
       SaveInCache(db, results.final, "resultsfinal_key")
       write.table(results.final, file=out.file.name, quote=FALSE, row.names=FALSE,sep="\t")
@@ -297,7 +298,7 @@ PrintDavidReport <- function(cache.db.obj, db.cache.name) {
   analysis.type <- LoadCachedObject(db, "analysistype_key")
   out.file.name <- LoadCachedObject(db, "outfilename_key")
   specie <- LoadCachedObject(db, "specie_key")
-  
+  filter.list <- LoadCachedObject(db, "filterlist_key")
   
   report <- paste0(file.path("RNASeqGUI_Projects", Project, "Logs"), sys.sep, "report.Rmd")
   
@@ -318,6 +319,11 @@ PrintDavidReport <- function(cache.db.obj, db.cache.name) {
                     "`, db.selected: `",db.selected,
                     "`, analysis.type: `",analysis.type,
                     "`, specie: `",specie,
+                    
+                    "`, filter: `",filter.list$flag,
+                    "`, filter.column: `",filter.list$col.name,
+                    "`, filter.threshold: `",filter.list$thr,
+                    
                     "`, Project: `",Project,"`",sep="\n")
   ##aggiungere flag di filtering
   write(message2, file = report,ncolumns = if(is.character(message2)) 1 else 5,append = TRUE, sep = "\n")
