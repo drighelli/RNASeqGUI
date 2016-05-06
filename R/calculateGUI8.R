@@ -4,7 +4,25 @@ function(project_name) {
  Project <- project_name
  message=paste("You are using the project: ",Project,sep="")
  print(message)
-
+ 
+ SaveResultsInTSV <- function(res, Project, exportName) {
+   if(Sys.info()[[1]]=="Windows"){
+     sys.sep="\\"
+   }else{
+     sys.sep="/"
+   }
+   # print(colnames(res))
+   # columns <- as.character(c("rnames", colnames(res)))
+   # print(columns)
+   write.table(res, 
+               file=file.path("RNASeqGUI_Projects",Project,"Results", paste0(exportName,".tsv")), 
+               sep="\t",
+               quote=FALSE, 
+               row.names=TRUE,
+               col.names = NA
+               )
+ }
+ 
 	openFile <- function(button,user.data) {
 		dialog <- gtkFileChooserDialog("Open File",window,c("open","modal","destroy-with-parent"),"gtk-cancel", GtkResponseType["cancel"],"gtk-open",GtkResponseType["accept"])
 		dialog$setCurrentFolder("~/")
@@ -61,10 +79,11 @@ if(Sys.info()[[1]]=="Windows"){
 		  # Get saving options and save if needed
 		  isToSave <- toSave$active
 		  exportName <- exportfilename$getText()
-		  if ((isToSave)&(exportName=="")) {
+		  if ((isToSave)&&(exportName=="")) {
 		    warning <- "Invalid user data: a file name must be specified if you want to save results."
 		  } else {
-		    write.table(res,file=paste("RNASeqGUI_Projects\\",Project,"\\Results\\",exportName,".csv",sep=""))
+		    #write.table(res,file=paste("RNASeqGUI_Projects\\",Project,"\\Results\\",exportName,".tsv",sep="\t"), quote = FALSE, row.names = TRUE )
+		    SaveResultsInTSV(res, Project, exportName)
 		  }
 		  if (!is.null(res)) {
 		    ########## Start dialog...
@@ -85,10 +104,10 @@ if(Sys.info()[[1]]=="Windows"){
 		    }
 		    
 		    # If results are saved, print information about it
-		    if ((isToSave)&(exportName!="")) {
+		    if ((isToSave)&&(exportName!="")) {
 		      hbox <- gtkHBoxNew(FALSE,20)
 		      vbox$packStart(hbox, FALSE, FALSE, 0)
-		      label <- gtkLabelNew(paste("The ", exportName,".csv file has been saved in RNASeqGUI_Projects\\",Project,"\\Results\\", sep=""))
+		      label <- gtkLabelNew(paste("The ", exportName,".tsv file has been saved in RNASeqGUI_Projects\\",Project,"\\Results\\", sep="\t"))
 		      hbox$packStart(label,FALSE,FALSE,0)
 		    }
 		    
@@ -135,10 +154,11 @@ if(Sys.info()[[1]]=="Windows"){
   	# Get saving options and save if needed
 			isToSave <- toSave$active
 			exportName <- exportfilename$getText()
-			if ((isToSave)&(exportName=="")) {
+			if ((isToSave)&&(exportName=="")) {
 				warning <- "Invalid user data: a file name must be specified if you want to save results."
 			} else {
-				write.table(res,file=paste("RNASeqGUI_Projects/",Project,"/Results/",exportName,".csv",sep=""))
+				#write.table(res,file=paste("RNASeqGUI_Projects/",Project,"/Results/",exportName,".tsv",sep="\t"))
+			  SaveResultsInTSV(res, Project, exportName)
 			}
 		if (!is.null(res)) {
 			########## Start dialog...
@@ -159,10 +179,10 @@ if(Sys.info()[[1]]=="Windows"){
 			}
 
 			# If results are saved, print information about it
-			if ((isToSave)&(exportName!="")) {
+			if ((isToSave)&&(exportName!="")) {
 				hbox <- gtkHBoxNew(FALSE,20)
 				vbox$packStart(hbox, FALSE, FALSE, 0)
-				label <- gtkLabelNew(paste("The ", exportName,".csv file has been saved in RNASeqGUI_Projects/",Project,"/Results/", sep=""))
+				label <- gtkLabelNew(paste("The ", exportName,".tsv file has been saved in RNASeqGUI_Projects/",Project,"/Results/", sep=""))
 				hbox$packStart(label,FALSE,FALSE,0)
 			}
 
@@ -193,7 +213,6 @@ if(Sys.info()[[1]]=="Windows"){
  rm(list = ls())
 	} #End of function
 
-
 conversion_fun <- function(button, user.data) {
 		res <- NULL
   d <- NULL
@@ -218,10 +237,10 @@ if(Sys.info()[[1]]=="Windows"){
 		  # Get saving options and save if needed
 		  isToSave <- toSave$active
 		  exportName <- exportfilename$getText()
-		  if ((isToSave)&(exportName=="")) {
+		  if ((isToSave)&&(exportName=="")) {
 		    warning <- "Invalid user data: a file name must be specified if you want to save results."
 		  } else {
-		    write.table(res,file=paste("RNASeqGUI_Projects\\",Project,"\\Results\\",exportName,".csv",sep=""), quote=FALSE, row.names=FALSE)
+		    SaveResultsInTSV(res, Project, exportName)
 		  }
 		  if (!is.null(res)) {
 		    ########## Start dialog...
@@ -242,10 +261,10 @@ if(Sys.info()[[1]]=="Windows"){
 		    }
 		    
 		    # If results are saved, print information about it
-		    if ((isToSave)&(exportName!="")) {
+		    if ((isToSave)&&(exportName!="")) {
 		      hbox <- gtkHBoxNew(FALSE,20)
 		      vbox$packStart(hbox, FALSE, FALSE, 0)
-		      label <- gtkLabelNew(paste("The ", exportName,".csv file has been saved in RNASeqGUI_Projects\\",Project,"\\Results\\", sep=""))
+		      label <- gtkLabelNew(paste("The ", exportName,".tsv file has been saved in RNASeqGUI_Projects\\",Project,"\\Results\\", sep=""))
 		      hbox$packStart(label,FALSE,FALSE,0)
 		    }
 		    
@@ -283,10 +302,11 @@ if(Sys.info()[[1]]=="Windows"){
   	# Get saving options and save if needed
 			isToSave <- toSave$active
 			exportName <- exportfilename$getText()
-			if ((isToSave)&(exportName=="")) {
+			if ((isToSave)&&(exportName=="")) {
 				warning <- "Invalid user data: a file name must be specified if you want to save results."
 			} else {
-				write.table(res,file=paste("RNASeqGUI_Projects/",Project,"/Results/",exportName,".csv",sep=""), quote=FALSE, row.names=FALSE)
+				#write.table(res,file=paste("RNASeqGUI_Projects/",Project,"/Results/",exportName,".tsv",sep="\t"), quote=FALSE, row.names=FALSE)
+			  SaveResultsInTSV(res, Project, exportName)
 			}
 		if (!is.null(res)) {
 			########## Start dialog...
@@ -307,10 +327,10 @@ if(Sys.info()[[1]]=="Windows"){
 			}
 
 			# If results are saved, print information about it
-			if ((isToSave)&(exportName!="")) {
+			if ((isToSave)&&(exportName!="")) {
 				hbox <- gtkHBoxNew(FALSE,20)
 				vbox$packStart(hbox, FALSE, FALSE, 0)
-				label <- gtkLabelNew(paste("The ", exportName,".csv file has been saved in RNASeqGUI_Projects/",Project,"/Results/", sep=""))
+				label <- gtkLabelNew(paste("The ", exportName,".tsv file has been saved in RNASeqGUI_Projects/",Project,"/Results/", sep=""))
 				hbox$packStart(label,FALSE,FALSE,0)
 			}
 
@@ -360,10 +380,11 @@ modifycountfile_fun <- function(button, user.data) {
 		  # Get saving options and save if needed
 		  isToSave <- toSave$active
 		  exportName <- exportfilename$getText()
-		  if ((isToSave)&(exportName=="")) {
+		  if ((isToSave)&&(exportName=="")) {
 		    warning <- "Invalid user data: a file name must be specified if you want to save results."
 		  } else {
-		    write.table(res,file=paste("RNASeqGUI_Projects\\",Project,"\\Results\\",exportName,".csv",sep=""))
+		    #write.table(res,file=paste("RNASeqGUI_Projects\\",Project,"\\Results\\",exportName,".tsv",sep="\t"))
+		    SaveResultsInTSV(res, Project, exportName)
 		  }
 		  if (!is.null(res)) {
 		    ########## Start dialog...
@@ -384,10 +405,10 @@ modifycountfile_fun <- function(button, user.data) {
 		    }
 		    
 		    # If results are saved, print information about it
-		    if ((isToSave)&(exportName!="")) {
+		    if ((isToSave)&&(exportName!="")) {
 		      hbox <- gtkHBoxNew(FALSE,20)
 		      vbox$packStart(hbox, FALSE, FALSE, 0)
-		      label <- gtkLabelNew(paste("The ", exportName,".csv file has been saved in RNASeqGUI_Projects\\",Project,"\\Results\\", sep=""))
+		      label <- gtkLabelNew(paste("The ", exportName,".tsv file has been saved in RNASeqGUI_Projects\\",Project,"\\Results\\", sep=""))
 		      hbox$packStart(label,FALSE,FALSE,0)
 		    }
 		    
@@ -423,10 +444,11 @@ modifycountfile_fun <- function(button, user.data) {
   	# Get saving options and save if needed
 			isToSave <- toSave$active
 			exportName <- exportfilename$getText()
-			if ((isToSave)&(exportName=="")) {
+			if ((isToSave)&&(exportName=="")) {
 				warning <- "Invalid user data: a file name must be specified if you want to save results."
 			} else {
-				write.table(res,file=paste("RNASeqGUI_Projects/",Project,"/Results/",exportName,".csv",sep=""))
+				#write.table(res,file=paste("RNASeqGUI_Projects/",Project,"/Results/",exportName,".tsv",sep="\t"))
+			  SaveResultsInTSV(res, Project, exportName)
 			}
 		if (!is.null(res)) {
 			########## Start dialog...
@@ -447,10 +469,10 @@ modifycountfile_fun <- function(button, user.data) {
 			}
 
 			# If results are saved, print information about it
-			if ((isToSave)&(exportName!="")) {
+			if ((isToSave)&&(exportName!="")) {
 				hbox <- gtkHBoxNew(FALSE,20)
 				vbox$packStart(hbox, FALSE, FALSE, 0)
-				label <- gtkLabelNew(paste("The ", exportName,".csv file has been saved in RNASeqGUI_Projects/",Project,"/Results/", sep=""))
+				label <- gtkLabelNew(paste("The .tsv file has been saved in RNASeqGUI_Projects/",Project,"/Results/", sep=""))
 				hbox$packStart(label,FALSE,FALSE,0)
 			}
 
@@ -501,10 +523,11 @@ roundcountfile_fun <- function(button, user.data) {
 		  # Get saving options and save if needed
 		  isToSave <- toSave$active
 		  exportName <- exportfilename$getText()
-		  if ((isToSave)&(exportName=="")) {
+		  if ((isToSave)&&(exportName=="")) {
 		    warning <- "Invalid user data: a file name must be specified if you want to save results."
 		  } else {
-		    write.table(res,file=paste("RNASeqGUI_Projects\\",Project,"\\Results\\",exportName,".csv",sep=""))
+		    #write.table(res,file=paste("RNASeqGUI_Projects\\",Project,"\\Results\\",exportName,".tsv",sep="\t"))
+		    SaveResultsInTSV(res, Project, exportName)
 		  }
 		  if (!is.null(res)) {
 		    ########## Start dialog...
@@ -525,10 +548,10 @@ roundcountfile_fun <- function(button, user.data) {
 		    }
 		    
 		    # If results are saved, print information about it
-		    if ((isToSave)&(exportName!="")) {
+		    if ((isToSave)&&(exportName!="")) {
 		      hbox <- gtkHBoxNew(FALSE,20)
 		      vbox$packStart(hbox, FALSE, FALSE, 0)
-		      label <- gtkLabelNew(paste("The ", exportName,".csv file has been saved in RNASeqGUI_Projects\\",Project,"\\Results\\", sep=""))
+		      label <- gtkLabelNew(paste("The ", exportName,".tsv file has been saved in RNASeqGUI_Projects\\",Project,"\\Results\\", sep=""))
 		      hbox$packStart(label,FALSE,FALSE,0)
 		    }
 		    
@@ -563,10 +586,11 @@ roundcountfile_fun <- function(button, user.data) {
   	# Get saving options and save if needed
 			isToSave <- toSave$active
 			exportName <- exportfilename$getText()
-			if ((isToSave)&(exportName=="")) {
+			if ((isToSave)&&(exportName=="")) {
 				warning <- "Invalid user data: a file name must be specified if you want to save results."
 			} else {
-				write.table(res,file=paste("RNASeqGUI_Projects/",Project,"/Results/",exportName,".csv",sep=""))
+				#write.table(res,file=paste("RNASeqGUI_Projects/",Project,"/Results/",exportName,".tsv",sep="\t"), quote = FALSE, row.names = TRUE )
+			  SaveResultsInTSV(res, Project, exportName)
 			}
 		if (!is.null(res)) {
 			########## Start dialog...
@@ -587,10 +611,10 @@ roundcountfile_fun <- function(button, user.data) {
 			}
 
 			# If results are saved, print information about it
-			if ((isToSave)&(exportName!="")) {
+			if ((isToSave)&&(exportName!="")) {
 				hbox <- gtkHBoxNew(FALSE,20)
 				vbox$packStart(hbox, FALSE, FALSE, 0)
-				label <- gtkLabelNew(paste("The ", exportName,".csv file has been saved in RNASeqGUI_Projects/",Project,"/Results/", sep=""))
+				label <- gtkLabelNew(paste("The ", exportName,".tsv file has been saved in RNASeqGUI_Projects/",Project,"/Results/", sep=""))
 				hbox$packStart(label,FALSE,FALSE,0)
 			}
 
@@ -787,7 +811,7 @@ infoFun <- function(button, user.data) {
 	exportfilename$setText("")
 	hbox$packStart(exportfilename,FALSE,FALSE,0)
 	label$setMnemonicWidget(exportfilename)
-	label <- gtkLabel(".csv")
+	label <- gtkLabel(".tsv")
 	hbox$packStart(label,FALSE,FALSE,0)
 
 	# Add button

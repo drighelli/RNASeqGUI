@@ -293,6 +293,7 @@ FeatureCountsFun <- function(bamfile){
   write.table(fc_SE[1], file = b , quote=FALSE, sep="\t", row.names=TRUE)
 }
 
+#lapply(fls, FeatureCountsFun)   #MAIN FUNCTION HERE
 bplapply(fls, FeatureCountsFun)   #MAIN FUNCTION HERE
 
 
