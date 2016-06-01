@@ -14,13 +14,13 @@ roundcountfile <- function(Count.File,Project){
  
  if(Sys.info()[[1]]=="Windows"){
 
-   write.table(counts, file = paste(getwd(),"\\RNASeqGUI_Projects\\",Project,"\\Results\\round_counts.txt",sep=""), quote=FALSE, row.names=TRUE)
+   write.table(counts, file = paste(getwd(),"\\RNASeqGUI_Projects\\",Project,"\\Results\\round_counts.txt",sep=""), quote=FALSE, row.names=TRUE, sep="\t")
    message=paste("The file 'round_counts.txt' has just been written in RNASeqGUI_Projects\\", Project,"\\Results folder!", sep="")
    print(message)
 
  }else{ #Unix
 
-   write.table(counts, file = paste(getwd(),"/RNASeqGUI_Projects/",Project,"/Results/round_counts.txt",sep=""), quote=FALSE, row.names=TRUE)
+   write.table(counts, file = paste(getwd(),"/RNASeqGUI_Projects/",Project,"/Results/round_counts.txt",sep=""), quote=FALSE, row.names=TRUE, sep="\t")
    message=paste("The file 'round_counts.txt' has just been written in RNASeqGUI_Projects/", Project,"/Results folder!", sep="")
    print(message)
 

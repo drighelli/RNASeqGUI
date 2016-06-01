@@ -20,7 +20,7 @@ UQUA <- function(x, the.file, Project){
   print("You loaded the following count file:")
   print(head(x,10))
   x <- edgeR::DGEList(counts = x)
-  x <- edgeR::calcNormFactors(x,method='upperquartile')
+  x <- edgeR::calcNormFactors(x, method='upperquartile')
   x <- edgeR::estimateCommonDisp(x, verbose=FALSE)
   x <- edgeR::estimateTagwiseDisp(x) 
   print("UQUA normalized count:")
@@ -31,7 +31,7 @@ UQUA <- function(x, the.file, Project){
 
   colors=c('red','red','blue','blue','purple','purple','orange','orange','pink','orange','gold','darkblue','cyan','darkred')
 
-  boxplot(log(myuqua+1),col=colors, main="Upper Quartile BoxPlot",las=1)
+  boxplot(log(myuqua+1), col=colors, main="Upper Quartile BoxPlot", las=1)
 
   dev.print(device = pdf, file=b)
 
