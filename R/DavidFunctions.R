@@ -84,10 +84,12 @@ SavePathwaysList <- function(results.david.data.frame, david.db.path, just.file.
     for(i in 1:nrow(results.david.data.frame)) {
       gene.list <- strsplit( as.character(results.david.data.frame[i,"Genes"]),", ")
       filename <- gsub(" " ,"_", gsub(':', "_", results.david.data.frame[i,"Term"] ))
+      filename <- gsub('/', "_", filename)
+      #filename <- gsub('\\', "_", filename)
       filename <- paste0(filename, ".txt")
       filanamepath <- file.path(david.db.path, filename)
       write.table(x=gene.list, file=filanamepath, sep = "\n", row.names = FALSE, col.names = FALSE, quote = FALSE)
-      cat('Pathway file ', filename, ' written on disk!\n')
+      cat('David result file ', filename, ' written on disk!\n')
     }
   } else {
     cat("David Results empty! Sorry! Something went wrong...\n")
