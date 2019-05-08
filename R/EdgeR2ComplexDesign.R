@@ -47,7 +47,8 @@ EdgeRComplexDesign <- function(x, n, factors, the.file, fdr, LibraryLayout, Proj
 
   print(res9$samples)
 
-  design=model.matrix( ~ LibraryLayout + g)
+  design=model.matrix( ~ LibraryLayout + g )
+  # design=model.matrix( ~ g)
   SaveInCache(db, design, "design_key")
 
   print("Experimental design:")

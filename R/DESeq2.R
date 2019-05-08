@@ -52,7 +52,7 @@ NEWDESeq2 <- function(x, conditions, libTypes, treated, control, the.file, pvala
   
   SaveInCache(db, res, "res_key")
 
-  print("Firts five lines of the results.")
+  print("First five lines of the results.")
   print( head(res) )
   message=paste("Results of DESeq2 have been saved in the Results folder of ", Project," project!", sep="")
   print(message)

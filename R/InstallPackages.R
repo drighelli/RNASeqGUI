@@ -65,7 +65,8 @@ install.rnaseqgui.dependencies <- function() {
     'filehash',
     'latticeExtra',
     'plotrix',
-    'car'
+    'car',
+    'filehash'
   )
   
   install.packages.list(bio.packages, T)

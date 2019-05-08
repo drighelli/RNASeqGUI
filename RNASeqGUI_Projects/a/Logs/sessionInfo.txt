@@ -1,0 +1,81 @@
+R version 3.3.2 (2016-10-31)
+Platform: x86_64-pc-linux-gnu (64-bit)
+Running under: Ubuntu 16.04.1 LTS
+
+locale:
+ [1] LC_CTYPE=it_IT.UTF-8       LC_NUMERIC=C              
+ [3] LC_TIME=it_IT.UTF-8        LC_COLLATE=it_IT.UTF-8    
+ [5] LC_MONETARY=it_IT.UTF-8    LC_MESSAGES=it_IT.UTF-8   
+ [7] LC_PAPER=it_IT.UTF-8       LC_NAME=C                 
+ [9] LC_ADDRESS=C               LC_TELEPHONE=C            
+[11] LC_MEASUREMENT=it_IT.UTF-8 LC_IDENTIFICATION=C       
+
+attached base packages:
+[1] parallel  stats4    stats     graphics  grDevices utils     datasets 
+[8] methods   base     
+
+other attached packages:
+ [1] lattice_0.20-34            plotrix_3.6-3             
+ [3] filehash_2.3               ineq_0.2-13               
+ [5] e1071_1.6-7                ReportingTools_2.14.0     
+ [7] knitr_1.15.1               Rsubread_1.24.1           
+ [9] digest_0.6.10              scatterplot3d_0.3-37      
+[11] preprocessCore_1.36.0      leeBamViews_1.10.0        
+[13] BSgenome_1.42.0            rtracklayer_1.34.1        
+[15] EDASeq_2.8.0               ShortRead_1.32.0          
+[17] GenomicAlignments_1.10.0   gplots_3.0.1              
+[19] pasilla_1.2.0              DEXSeq_1.20.1             
+[21] RColorBrewer_1.1-2         DESeq2_1.14.1             
+[23] SummarizedExperiment_1.4.0 BiocParallel_1.8.1        
+[25] Rsamtools_1.26.1           Biostrings_2.42.1         
+[27] XVector_0.14.0             GenomicFeatures_1.26.2    
+[29] AnnotationDbi_1.36.0       Biobase_2.34.0            
+[31] GenomicRanges_1.26.1       GenomeInfoDb_1.10.1       
+[33] IRanges_2.8.1              S4Vectors_0.12.1          
+[35] BiocGenerics_0.20.0        RGtk2_2.20.31             
+[37] RNASeqGUI_1.1.2           
+
+loaded via a namespace (and not attached):
+ [1] colorspace_1.3-2              hwriter_1.3.2                
+ [3] class_7.3-14                  biovizBase_1.22.0            
+ [5] htmlTable_1.7                 dichromat_2.0-0              
+ [7] base64_2.0                    interactiveDisplayBase_1.12.0
+ [9] splines_3.3.2                 R.methodsS3_1.7.1            
+[11] ggbio_1.22.0                  DESeq_1.26.0                 
+[13] geneplotter_1.52.0            Formula_1.2-1                
+[15] annotate_1.52.0               cluster_2.0.5                
+[17] GO.db_3.4.0                   R.oo_1.21.0                  
+[19] graph_1.52.0                  shiny_0.14.2                 
+[21] httr_1.2.1                    GOstats_2.40.0               
+[23] assertthat_0.1                Matrix_1.2-7.1               
+[25] lazyeval_0.2.0                limma_3.30.7                 
+[27] acepack_1.4.1                 htmltools_0.3.5              
+[29] tools_3.3.2                   gtable_0.2.0                 
+[31] Category_2.40.0               reshape2_1.4.2               
+[33] Rcpp_0.12.8                   gdata_2.17.0                 
+[35] stringr_1.1.0                 mime_0.5                     
+[37] ensembldb_1.6.2               gtools_3.5.0                 
+[39] statmod_1.4.27                XML_3.98-1.5                 
+[41] AnnotationHub_2.6.4           edgeR_3.16.5                 
+[43] zlibbioc_1.20.0               scales_0.4.1                 
+[45] aroma.light_3.4.0             VariantAnnotation_1.20.2     
+[47] BiocInstaller_1.24.0          RBGL_1.50.0                  
+[49] yaml_2.1.14                   memoise_1.0.0                
+[51] gridExtra_2.2.1               ggplot2_2.2.0                
+[53] biomaRt_2.30.0                rpart_4.1-10                 
+[55] reshape_0.8.6                 latticeExtra_0.6-28          
+[57] stringi_1.1.2                 RSQLite_1.1-1                
+[59] genefilter_1.56.0             caTools_1.17.1               
+[61] matrixStats_0.51.0            bitops_1.0-6                 
+[63] GSEABase_1.36.0               AnnotationForge_1.16.0       
+[65] GGally_1.3.0                  plyr_1.8.4                   
+[67] magrittr_1.5                  R6_2.2.0                     
+[69] Hmisc_4.0-1                   DBI_0.5-1                    
+[71] foreign_0.8-67                survival_2.40-1              
+[73] RCurl_1.95-4.8                nnet_7.3-12                  
+[75] tibble_1.2                    KernSmooth_2.23-15           
+[77] OrganismDbi_1.16.0            PFAM.db_3.4.0                
+[79] locfit_1.5-9.1                grid_3.3.2                   
+[81] data.table_1.10.0             xtable_1.8-2                 
+[83] httpuv_1.3.3                  R.utils_2.5.0                
+[85] openssl_0.9.5                 munsell_0.4.3                

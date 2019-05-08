@@ -22,9 +22,10 @@ function(x,the.file,legendpos,Project){
  SaveInCache(pcafun.db, colors, "colors_key")
  SaveInCache(pcafun.db, n, "n_key")
  condition=colnames(x)
-
+ SaveInCache(pcafun.db, condition, "condition_key")
+ 
   outputName=paste(the.file2,"_PCA.pdf",sep="")
-  plot(PCA$x,pch=unclass(as.factor(condition)),col=colors,cex=1.5, main = outputName,lwd=2)
+  plot(PCA$x,pch=unclass(as.factor(condition)), col=colors, cex=1.5, main = outputName,lwd=2)
 
   legend(legendpos,legend=condition,pch=unclass(as.factor(condition)),col=colors,fill="transparent",border="NA")
   b=paste(a,outputName,sep="")
