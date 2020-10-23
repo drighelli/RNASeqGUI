@@ -1,9 +1,14 @@
+# RNASeqGUI
+
 RNASeqGUI is an R Graphical User Interface for Bulk RNA-seq data analysis in a reproducible research way.
+
+# Requisites Installation
 
 It needs GTK2 libraries to run. 
 Below, it is described how to install GTK2 libraries on Linux, Mac OS and Windows.
 
-For Linux users
+## For Linux users
+
 We tested RNASeqGUI on Ubuntu 12.04 (precise) 64-bit, Kernel Linux 3.2.0-37-generic, GNOME 3.4.2.
 
 1 - Open a terminal and type: 
@@ -21,14 +26,14 @@ We tested RNASeqGUI on Ubuntu 12.04 (precise) 64-bit, Kernel Linux 3.2.0-37-gene
   sudo apt-get install libxml2-dev
 
 
-For Mac OS users
+## For Mac OS users
 
 1 - Install Xcode developer tools (at least version 5.0.1) from Apple Store (it is free).
 2 - Install XQuartz-2.7.5.dmg from http://xquartz.macosforge.org/landing/
 3 - Install GTK_2.24.17_X11.pkg from http://r.research.att.com .
 
 
-For Windows users
+## For Windows users
 
 1 - download gtk+-bundle_2.22.1-20101229_win64.zip from http://ftp.gnome.org/pub/gnome/binaries/win64/gtk+/2.22/ .
 2 - This is a bundle containing the GTK+ stack and its dependencies for Windows. To use it, create some empty folder like C : \opt\gtk .
@@ -44,7 +49,7 @@ variables to be C : \opt\gtk\bin .
 This is all you need to install the GTK2 libraries.
 
 
-RNASeqGUI installation
+# RNASeqGUI installation
 
 1 - Install R version 3.2.2 (2015-08-14) – “Fire Safety” from http://cran.r-project.org/  according to your operating system.
 
@@ -73,7 +78,7 @@ Please open a R shell and type:
   source("InstallPackages.R")
 
 
-Quick start
+# Quick start
 
 If you have successfully gone through the installation you are ready to use RNASeqGUI, as follows.
 1 - Open R.
