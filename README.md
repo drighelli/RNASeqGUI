@@ -1,4 +1,6 @@
-RNASeqGUI package needs GTK2 libraries to run. 
+RNASeqGUI is an R Graphical User Interface for Bulk RNA-seq data analysis in a reproducible research way.
+
+It needs GTK2 libraries to run. 
 Below, it is described how to install GTK2 libraries on Linux, Mac OS and Windows.
 
 For Linux users
