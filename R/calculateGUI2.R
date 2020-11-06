@@ -11,11 +11,11 @@ function(project_name) {
   rm(list = ls())
 	} #End of function
 
- GUI_DESeq <- function(button, user.data) {
-		res <- NULL
-  res = calculate_DESeq(project_name)                 		
-  rm(list = ls())
-	} #End of function
+#  GUI_DESeq <- function(button, user.data) {
+# 		res <- NULL
+#   res = calculate_DESeq(project_name)                 		
+#   rm(list = ls())
+# 	} #End of function
 
  GUI_DESeq2 <- function(button, user.data) {
 		res <- NULL
@@ -29,11 +29,11 @@ function(project_name) {
   rm(list = ls())
 	} #End of function
 
- GUI_DESeqComplexDesign <- function(button, user.data) {
-		res <- NULL
-  res = calculate_DESeqComplexDesign(project_name)                 		
-  rm(list = ls())
-	} #End of function
+#  GUI_DESeqComplexDesign <- function(button, user.data) {
+# 		res <- NULL
+#   res = calculate_DESeqComplexDesign(project_name)                 		
+#   rm(list = ls())
+# 	} #End of function
 
  GUI_DESeq2ComplexDesign <- function(button, user.data) {
 		res <- NULL
@@ -104,27 +104,27 @@ function(project_name) {
  vbox$add(the.buttons)
  the.buttons$setLayout("spread")
  the.buttons$setSpacing(40)
-
- # button
-	GUI_DESeqbutton <- gtkButtonNewWithMnemonic("_DESeq", show = TRUE)
-	gSignalConnect(GUI_DESeqbutton, "clicked", GUI_DESeq)
-	the.buttons$packStart(GUI_DESeqbutton,fill=FALSE)
-
- # button
-	GUI_DESeqComplexDesignbutton <- gtkButtonNewWithMnemonic("_DESeq for Complex Design", show = TRUE)
-	gSignalConnect(GUI_DESeqComplexDesignbutton, "clicked", GUI_DESeqComplexDesign)
-	the.buttons$packStart(GUI_DESeqComplexDesignbutton,fill=FALSE)
-
-# Add horizontal container for every widget line
-	hbox <- gtkHBoxNew(FALSE, 8)
-	vbox$packStart(hbox, FALSE, FALSE, 0)
-
-# Add button
-	the.buttons <- gtkHButtonBoxNew()
-	the.buttons$setBorderWidth(5)
- vbox$add(the.buttons)
- the.buttons$setLayout("spread")
- the.buttons$setSpacing(40)
+# # # 
+# # #  # button
+# # # 	GUI_DESeqbutton <- gtkButtonNewWithMnemonic("_DESeq", show = TRUE)
+# # # 	gSignalConnect(GUI_DESeqbutton, "clicked", GUI_DESeq)
+# # # 	the.buttons$packStart(GUI_DESeqbutton,fill=FALSE)
+# # # 
+# # #  # button
+# # # 	GUI_DESeqComplexDesignbutton <- gtkButtonNewWithMnemonic("_DESeq for Complex Design", show = TRUE)
+# # # 	gSignalConnect(GUI_DESeqComplexDesignbutton, "clicked", GUI_DESeqComplexDesign)
+# # # 	the.buttons$packStart(GUI_DESeqComplexDesignbutton,fill=FALSE)
+# # 
+# # # Add horizontal container for every widget line
+# # 	hbox <- gtkHBoxNew(FALSE, 8)
+# # 	vbox$packStart(hbox, FALSE, FALSE, 0)
+# 
+# # Add button
+# 	the.buttons <- gtkHButtonBoxNew()
+# 	the.buttons$setBorderWidth(5)
+#  vbox$add(the.buttons)
+#  the.buttons$setLayout("spread")
+#  the.buttons$setSpacing(40)
 
  # button
 	GUI_DESeq2button <- gtkButtonNewWithMnemonic("_DESeq2", show = TRUE)

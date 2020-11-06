@@ -1,19 +1,33 @@
 Package: RNASeqGUI
 Title: A GUI with caching for RNASeq data
-Version: 1.1.2
-Date: 2016-05-20
+Version: 1.1.3
+Date: 2020-11-06
 Author: Francesco Russo, Dario Righelli and Claudia Angelini
-Maintainer: Dario Righelli <rnaseqgui@na.iac.cnr.it>
-Description: RNASeqGUI is a graphical user interface for the identification of differentially expressed genes from RNA-Seq experiments. It includes several well known RNA-Seq tools, available as command line in www.bioconductor.org. RNASeqGUI is divided into seven sections. Each section is dedicated to a particular step of the data analysis process.
+Authors@R: c(
+    person("Francesco", "Russo", role=c("aut", "cre")),
+    person("Dario", "Righelli", role=c("aut", "cre")),
+    person("Claudia", "Angelini", role="aut", email="c.angelini@na.iac.cnr.it"))
+Maintainer: Dario Righelli <dario.righelli@na.iac.cnr.it>
+Description: RNASeqGUI is a graphical user interface for the identification of 
+ differentially expressed genes from RNA-Seq experiments. It includes several well 
+ known RNA-Seq tools, available as command line in www.bioconductor.org. 
+ RNASeqGUI is divided into seven sections. Each section is dedicated to a 
+ particular step of the data analysis process.
 License: GPL (>= 3)
+BugReports: https://github.com/drighelli/RNASeqGUI/issues
 biocViews: DifferentialExpression, GUI, Preprocessing, QualityControl,
         RNASeq, Sequencing, Software, StatisticalMethod
-Suggests: digest, GenomicRanges, GenomicFeatures, Rsamtools, ggplot2,
-        DEXSeq, pasilla, edgeR, baySeq, NOISeq, DESeq, DESeq2, gplots,
-        RColorBrewer, VennDiagram, EDASeq, leeBamViews, preprocessCore,
-        scatterplot3d, BiocParallel, Rsubread, RGtk2, e1071, ineq,
-        GenomicAlignments, ReportingTools, SPIA, biomaRt, car, gage,
-        gageData, graphite, hwriter, knitr, limma, pathview, tcltk
+depends: 
+        "baySeq", "BiocParallel", "BiocStyle", "biomaRt", "car", 
+        "DESeq2", "DEXSeq", "digest", "e1071", "EDASeq", "edgeR", "filehash",
+        "gage", "gageData", "GenomicAlignments", "GenomicFeatures", 
+        "GenomicRanges", "ggplot2", "gplots", "graphite", "hwriter", "ineq", 
+        "knitr", "latticeExtra", "leeBamViews", "limma", "NOISeq", "pasilla", 
+        "pathview", "preprocessCore", "RColorBrewer", "RCurl", ReportingTools", 
+        "RGtk2", "Rsamtools", "Rsubread", "scatterplot3d", "SPIA", "tcltk", 
+        "VennDiagram", "XML"
 URL: http://bioinfo.na.iac.cnr.it/RNASeqGUI/
 Packaged: 2016-02-18 10:23:11 UTC; root
 NeedsCompilation: no
+
+

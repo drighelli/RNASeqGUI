@@ -247,11 +247,10 @@ infoFun <- function(button, user.data) {
 		       response <- dialog$run()
 		       response <- dialog$run()
 		      	# Return to previous window
-			      if (GtkResponseType["ok"]) { dialog$destroy() }			 
+			      if (GtkResponseType["ok"]) { dialog$destroy() }
 }
 
-#####################################################à
-
+#####################################################
 	# Create window
 	window <- gtkWindow()
 	# Add title

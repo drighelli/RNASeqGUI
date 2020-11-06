@@ -71,11 +71,24 @@ package tree and type the command
 
   sudo R CMD INSTALL -l /path/to/library RNASeqGUI
 
-3 - Finally, if the libraries required by RNASeqGUI are not automatically downloaded and installed.
-Inside the RNASeqGUI package there is a file called InstallPackages.R. This file can be loaded from an R shell to install all packages needed automatically.
-Please open a R shell and type:
-  
-  source("InstallPackages.R")
+3 - At this point you should have installed the RNASeqGUI package, which requires some other packages to work.
+
+3.1 - If you've been able to install the GUI just run
+`library(RNASeqGUI)` 
+and then run the command 
+`install.rnaseqgui.dependencies()`
+to be sure that you have everything is required for the GUI to work.
+
+3.2 If you got some problems installing the RNASeqGUI please try to follow previous instructions again.
+If the problem is just on the dependencies and you haven't been able to install the gui, just open the file 
+RNASeqGUI/R/InstallPackages.R and source it via the upper right corner "source" button in RStudio.
+Then run the 
+`install.rnseqgui.dependencies()` 
+to understand which one is not working properly and try to solve the issue.
+
+(We consider that if you aren't using RStudio you're a more expert user that knows how to source the file)
+
+Note: Since version 1.1.3 DESeq is not available anymore in our GUI, because it's not maintained anymore.
 
 
 # Quick start

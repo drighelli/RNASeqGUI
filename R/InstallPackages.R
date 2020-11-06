@@ -3,21 +3,18 @@ is.installed <- function(mypkg) {
 }
 
 
-install.packages.list <- function(packages.list, is.bioconductor=FALSE){
-  for(pckg in packages.list) {
-    if(!is.installed(pckg)) {
-      if(is.bioconductor){
-        source("http://bioconductor.org/biocLite.R")
-        biocLite(pckg)
-        print(paste0('Bio package ', pckg, ' installed!'))
-      } else {
-        install.packages(pckg)
-        print(paste0('Package ', pckg, ' installed!'))
-      }
-    } else {
-      print(paste0('Package ', pckg, ' already installed!'))
-    }
-  }
+install.packages.list <- function(packages.list)
+{
+    lapply(packages.list, function(pckg)
+    {
+        if(!is.installed(pckg)) 
+        {
+            BiocManager::install(pckg)
+        } else {
+            message(paste0('Package ', pckg, ' already installed!'))
+        }
+    })
+  return(NULL)
 }
 
 
@@ -33,7 +30,6 @@ install.rnaseqgui.dependencies <- function() {
     'edgeR',
     'baySeq',
     'NOISeq',
-    'DESeq',
     'DESeq2',
     'gplots',
     'EDASeq',
@@ -69,6 +65,6 @@ install.rnaseqgui.dependencies <- function() {
     'filehash'
   )
   
-  install.packages.list(bio.packages, T)
+  install.packages.list(bio.packages)
   install.packages.list(cran.packages)
 }
