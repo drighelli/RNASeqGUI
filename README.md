@@ -2,7 +2,7 @@
 
 **RNASeqGUI** is an R Graphical User Interface for Bulk RNA-seq data analysis in a reproducible research way.
 
-If you used RNASeqGUI for your analysis please consider **citing** our work:
+If you used RNASeqGUI for your analysis please consider **citing** our works:
 
 - F. Russo, D. Righelli and C. Angelini. Advancements in RNASeqGUI towards a Reproducible Analysis of RNA-Seq Experiment. BioMed Research International, 2016, 7972351. doi: http://dx.doi.org/10.1155/2016/7972351
 
